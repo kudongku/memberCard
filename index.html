@@ -134,10 +134,12 @@
       var img2 = document.querySelector('.img2');
 
       card1.addEventListener('mouseenter', function () {
-        img1.style = 'background-image: url(back_dong.png);';
+        img1.style =
+          'transition: all 0.5s; background-image: url(back_dong.png);';
       });
       card2.addEventListener('mouseenter', function () {
-        img2.style = 'background-image: url(back_minji.png);';
+        img2.style =
+          'transition: all 0.5s; background-image: url(back_minji.png);';
       });
 
       card1.addEventListener('mousemove', function (e) {
