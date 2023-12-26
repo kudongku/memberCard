@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>MemberCard</title>
     <style>
       body {
         margin: none;
@@ -14,7 +14,7 @@
         gap: 20px; /* 카드 사이에 20px의 간격을 줍니다. */
         padding: 10px; /* 요소 주변에 내부 여백을 줍니다. */
       }
-      .container {
+      .cont {
         width: 220px;
         height: 310px;
         transition: all 0.1s;
@@ -43,7 +43,14 @@
         background-image: url(CARD_dong.png);
         background-size: cover;
       }
-      .container2 {
+      .card3 {
+        width: 220px;
+        height: 310px;
+        background-image: url(CARD_dong.png);
+        background-size: cover;
+      }
+
+      .cont2 {
         width: 220px;
         height: 310px;
         transition: all 0.1s;
@@ -74,20 +81,29 @@
       }
     </style>
   </head>
+
   <body>
     <div class="cards">
-      <div class="container">
+      <div class="cont">
         <div class="overlay"></div>
         <div class="card"></div>
       </div>
-      <div class="container2">
+      <div class="cont2">
         <div class="overlay2"></div>
         <div class="card2"></div>
       </div>
     </div>
 
+    <div class="cards">
+      <div class="cont">
+        <div class="overlay"></div>
+        <button onclick="info" class="card3">z</button>
+      </div>
+      <button class="card3"></button>
+    </div>
+
     <script>
-      var container = document.querySelector('.container');
+      var container = document.querySelector('.cont');
       var overlay = document.querySelector('.overlay');
       container.addEventListener('mousemove', function (e) {
         var x = e.offsetX;
@@ -108,7 +124,7 @@
           'transform : perspective(350px) rotateY(0deg) rotateX(0deg)';
       });
 
-      var container2 = document.querySelector('.container2');
+      var container2 = document.querySelector('.cont2');
       var overlay2 = document.querySelector('.overlay2');
       container2.addEventListener('mousemove', function (e) {
         var x = e.offsetX;

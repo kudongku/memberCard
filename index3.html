@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Member Card</title>
+    <style>
+      /* Additional styles for the flipped card */
+      .member-card.flipped {
+        transform: rotateY(180deg);
+      }
+      .card1 {
+        width: 220px;
+        height: 310px;
+        background-image: url(CARD_dong.png);
+        background-size: cover;
+        /* 기타 디자인에 필요한 스타일 */
+        border: none; /* 기본적인 버튼 스타일 제거 */
+        cursor: pointer; /* 마우스 커서를 포인터로 변경하여 클릭 가능한 상태임을 나타냅니다. */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* 호버 시의 변화에 대한 부드러운 애니메이션 효과 */
+      }
+      /* 마우스 호버 상태일 때 버튼 스타일 */
+      .card1:hover {
+        transform: scale(1.05); /* 마우스 호버 시 약간 확대되는 효과 */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 마우스 호버 시 그림자 효과 추가 */
+      }
+      .card-container1 {
+        position: absolute;
+        width: 220px;
+        height: 310px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-container1">
+      <button onclick="hi()" class="card1"></button>
+    </div>
+
+    <script>
+      // Get the member card element
+      const memberCard = document.getElementById('memberCard');
+
+      // Function to handle card flipping
+      function toggleCardFlip(event) {
+        memberCard.classList.toggle('flipped');
+      }
+
+      // Function to rotate the card based on mouse position
+      function rotateCard(event) {
+        const cardCenterX = memberCard.offsetLeft + memberCard.offsetWidth / 2;
+        const cardCenterY = memberCard.offsetTop + memberCard.offsetHeight / 2;
+
+        const angleX = (event.clientY - cardCenterY) * 0.1;
+        const angleY = -(event.clientX - cardCenterX) * 0.1;
+
+        memberCard.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+      }
+
+      // Event listeners
+      memberCard.addEventListener('click', toggleCardFlip);
+      memberCard.addEventListener('mousemove', rotateCard);
+      memberCard.addEventListener('mouseleave', () => {
+        memberCard.style.transform = 'none';
+      });
+    </script>
+  </body>
+</html>
